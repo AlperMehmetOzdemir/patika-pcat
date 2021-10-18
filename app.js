@@ -11,13 +11,17 @@ const pageController = require('./controllers/pageController');
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // connect DB
-mongoose.connect('mongodb://localhost/pcat-test-db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  'mongodb+srv://mehmet:d2AbJauI9zWtwmZe@cluster0.w3aul.mongodb.net/pcat-db?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+
+  }
+);
 
 // TEMPLATE ENGINE
 app.set('view engine', 'ejs');
